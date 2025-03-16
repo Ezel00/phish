@@ -5,6 +5,7 @@ from sklearn.model_selection import train_test_split, GridSearchCV
 from sklearn.preprocessing import StandardScaler
 from sklearn.linear_model import LinearRegression, Lasso, Ridge
 from sklearn.metrics import mean_squared_error, r2_score
+import processStats as ps
 
 pathEmbedTest=r"C:\Users\ezele\Desktop\thesis\tdaPython\final\testEMBED.csv"
 pathEmbedTrain=r"C:\Users\ezele\Desktop\thesis\tdaPython\final\trainEMBED.csv"
@@ -69,7 +70,7 @@ def lasso(X,y):
     print(f"Lasso Regression - Best Alpha: {lasso_cv.best_params_['alpha']}")
     print(f" Test MSE: {lasso_mse:.4f}, R² Score: {lasso_r2:.4f}")
 
-
+#to use the barcode stats just get the dataframes from ps, such as ps.XTrain, ps.XTest or ps.XTRainEmbed ad ps.XTestEmbed
 lasso(XTrain, yTrain)
 '''model, scaler = train(XTrain, yTrain)
 unseen(model, scaler, XTest, yTest)'''
