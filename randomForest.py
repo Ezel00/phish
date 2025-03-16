@@ -6,6 +6,7 @@ from sklearn.model_selection import train_test_split, GridSearchCV
 from sklearn.preprocessing import StandardScaler
 from sklearn.metrics import accuracy_score, classification_report
 import joblib
+import processStats as ps
 
 pathEmbedTest=r"C:\Users\ezele\Desktop\thesis\tdaPython\final\testEMBED.csv"
 pathEmbedTrain=r"C:\Users\ezele\Desktop\thesis\tdaPython\final\trainEMBED.csv"
@@ -37,8 +38,8 @@ def trainRFNoGrid(X, y):
     model.fit(X_train_scaled, y_train)
     y_pred = model.predict(X_test_scaled)
     accuracy = accuracy_score(y_test, y_pred)
-    print(f"\n🎯 Model Accuracy: {accuracy:.4f}")
-    print("\n📊 Classification Report:\n", classification_report(y_test, y_pred))
+    print(f"\n Model Accuracy: {accuracy:.4f}")
+    print("\n Classification Report:\n", classification_report(y_test, y_pred))
     return model, scaler
 #for not embeddings
 #Best Hyperparameters: {'max_depth': 20, 'min_samples_leaf': 1, 'min_samples_split': 2, 'n_estimators': 300}
